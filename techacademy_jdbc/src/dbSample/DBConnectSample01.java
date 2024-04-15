@@ -8,14 +8,17 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 
 
-public class DBConnectSample01 {
+public class DBConnectSample01 
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
       Connection con = null;
       Statement stmt = null;
       ResultSet rs = null;
       
-      try {
+      try 
+      {
          //1. ドライバーのクラスをJava上で読み込む
         Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -57,7 +60,8 @@ public class DBConnectSample01 {
         e.printStackTrace();
       }
             
-      finally{
+      finally
+      {
        // 7. 接続を閉じる 
           if (rs != null)
           {
@@ -88,6 +92,7 @@ public class DBConnectSample01 {
               {
                   con.close();
               }
+              
               catch (SQLException e) 
               {
                   System.err.println("データベース切断時いエラーが発生しました。");
@@ -96,6 +101,6 @@ public class DBConnectSample01 {
          }
      }
     }
-    }
+}
 
 

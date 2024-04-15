@@ -13,13 +13,15 @@ import java.sql.Statement;
 public class DBConnectSample03 
 {
 
-      public static void main(String[] args) {
+      public static void main(String[] args) 
+      {
           // データベース接続と結果取得のための変数
           Connection con = null;
           Statement stmt = null;
           ResultSet rs = null;
 
-          try {
+          try 
+          {
               // 1. ドライバのクラスをJava上で読み込む
               Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -38,7 +40,8 @@ public class DBConnectSample03
               rs = stmt.executeQuery(sql);
 
                           // 6. 結果を表示する
-                          while (rs.next()) {
+                          while (rs.next()) 
+                          {
                                   // Name列の値を取得
                                   String name = rs.getString("Name");
 
@@ -49,35 +52,52 @@ public class DBConnectSample03
                                   System.out.println(name);
                                   System.out.println(population);
                           }
-                  } catch (ClassNotFoundException e) {
+                  } 
+          catch (ClassNotFoundException e) 
+                  {
                           System.err.println("JDBCドライバのロードに失敗しました。");
                           e.printStackTrace();
-                  } catch (SQLException e) {
+                  } 
+          catch (SQLException e) 
+                  {
                           System.err.println("データベースに異常が発生しました。");
                           e.printStackTrace();
-                  } finally {
+                  } 
+          finally 
+                  {
                           // 7. 接続を閉じる
-                          if (rs != null) {
-                                  try {
+                          if (rs != null) 
+                          {
+                                  try 
+                                  {
                                           rs.close();
-                                  } catch (SQLException e) {
+                                  } catch (SQLException e) 
+                                  {
                                           System.err.println("ResultSetを閉じるときにエラーが発生しました。");
                                           e.printStackTrace();
                                   }
                           }
-                          if (stmt != null) {
-                                  try {
+                          if (stmt != null) 
+                          {
+                                  try 
+                                  {
                                           stmt.close();
-                                  } catch (SQLException e) {
+                                  } 
+                                  catch (SQLException e) 
+                                  {
                                           System.err.println("Statementを閉じるときにエラーが発生しました。");
                                           e.printStackTrace();
                                   }
                           }
                   }
-                  if (con != null) {
-                          try {
+                  if (con != null) 
+                  {
+                          try 
+                          {
                                   con.close();
-                          } catch (SQLException e) {
+                          } 
+                          catch (SQLException e) 
+                          {
                                   System.err.println("データベース切断時にエラーが発生しました。");
                                   e.printStackTrace();
                           }
@@ -87,12 +107,16 @@ public class DBConnectSample03
           /*
            * キーボードから入力された値をStringで返す 引数：なし 戻り値：入力された文字列
            */
-          private static String keyIn() {
+          private static String keyIn() 
+          {
                   String line = null;
-                  try {
+                  try 
+                  {
                           BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
                           line = key.readLine();
-                  } catch (IOException e) {
+                  } 
+                  catch (IOException e) 
+                  {
 
                   }
                   return line;
